@@ -1,0 +1,1 @@
+Stress test is the same as load test but with bigger numbers
