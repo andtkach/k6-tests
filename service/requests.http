@@ -1,0 +1,52 @@
+@baseUrl = http://localhost:3000
+@bookId = replace-with-book-id
+
+### System
+
+### Health check
+GET {{baseUrl}}/health
+
+### Delay (default 1 second)
+GET {{baseUrl}}/delay
+
+### Delay (custom seconds)
+GET {{baseUrl}}/delay?delay=3
+
+### Books
+
+### List all books
+GET {{baseUrl}}/books
+
+### Get book by id
+GET {{baseUrl}}/books/{{bookId}}
+
+### Create book
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "The Pragmatic Programmer",
+  "author": "David Thomas",
+  "year": 1999
+}
+
+### Create book (without year)
+POST {{baseUrl}}/books
+Content-Type: application/json
+
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin"
+}
+
+### Update book
+PUT {{baseUrl}}/books/{{bookId}}
+Content-Type: application/json
+
+{
+  "title": "The Pragmatic Programmer (20th Anniversary Edition)",
+  "year": 2019
+}
+
+### Delete book
+DELETE {{baseUrl}}/books/{{bookId}}
