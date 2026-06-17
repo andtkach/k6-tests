@@ -1,0 +1,1 @@
+k6 run .\groups.js --summary-mode=full

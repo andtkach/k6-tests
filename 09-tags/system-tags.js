@@ -10,5 +10,5 @@ export const options = {
 
 export default function () {
     http.get('http://localhost:3000/health');
-    http.get('http://localhost:3000/delay?delay=3');
+    http.get('http://localhost:3000/delay?ms=3000');
 }

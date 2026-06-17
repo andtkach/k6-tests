@@ -6,11 +6,11 @@
 ### Health check
 GET {{baseUrl}}/health
 
-### Delay (default 1 second)
+### Delay (default 1000 milliseconds)
 GET {{baseUrl}}/delay
 
-### Delay (custom seconds)
-GET {{baseUrl}}/delay?delay=3
+### Delay (custom milliseconds)
+GET {{baseUrl}}/delay?ms=3000
 
 ### Books
 

@@ -1,12 +1,12 @@
 import express from 'express';
 
-function parseDelaySeconds(raw) {
-  const parsed = Number(raw ?? '1');
-  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 1;
+function parseDelayMilliseconds(raw) {
+  const parsed = Number(raw ?? '1000');
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 1000;
 }
 
-function sleep(seconds) {
-  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export function createSystemRouter() {
@@ -16,9 +16,9 @@ export function createSystemRouter() {
 
   router.get('/delay', async (req, res, next) => {
     try {
-      const seconds = parseDelaySeconds(req.query.delay);
-      await sleep(seconds);
-      res.status(200).send(`delay for ${seconds} seconds`);
+      const ms = parseDelayMilliseconds(req.query.ms);
+      await sleep(ms);
+      res.status(200).send(`delay for ${ms} milliseconds`);
     } catch (e) {
       next(e);
     }
