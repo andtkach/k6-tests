@@ -1,0 +1,1 @@
+k6 run -e BASE_URL=http://localhost:8000 .\env-var.js
